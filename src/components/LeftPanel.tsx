@@ -1,6 +1,5 @@
 import { AboutSection } from './sections/AboutSection';
 import { SkillsSection } from './sections/SkillsSection';
-import { StacksSection } from './sections/StacksSection';
 import { ExperienceSection } from './sections/ExperienceSection';
 import { ProjectsSection } from './sections/ProjectsSection';
 import { ContactSection } from './sections/ContactSection';
@@ -11,7 +10,6 @@ export const LeftPanel = () => {
       <div className="max-w-4xl mx-auto">
         <AboutSection />
         <SkillsSection />
-        <StacksSection />
         <ExperienceSection />
         <ProjectsSection />
         <ContactSection />

@@ -45,8 +45,8 @@ export const ContactSection = () => {
 
               <div className="space-y-6 mb-8">
                 {[
-                  { icon: Mail, label: 'Email', value: 'nareach@example.com' },
-                  { icon: Phone, label: 'Phone', value: '+855 12 345 678' },
+                  { icon: Mail, label: 'Email', value: 'thoun.sovannareach0101@gmail.com' },
+                  { icon: Phone, label: 'Phone', value: '+855 69 812 656' },
                   { icon: MapPin, label: 'Location', value: 'Phnom Penh, Cambodia' },
                 ].map((item, index) => (
                   <motion.div
@@ -71,8 +71,8 @@ export const ContactSection = () => {
                 <h4 className="text-white font-semibold mb-4">Follow Me</h4>
                 <div className="flex gap-4">
                   {[
-                    { Icon: Github, href: '#', color: 'from-gray-600 to-gray-800' },
-                    { Icon: Linkedin, href: '#', color: 'from-blue-600 to-blue-800' },
+                    { Icon: Github, href: 'https://github.com/thounsova', color: 'from-gray-600 to-gray-800' },
+                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/sovannareach', color: 'from-blue-600 to-blue-800' },
                     { Icon: Twitter, href: '#', color: 'from-sky-500 to-blue-600' },
                   ].map(({ Icon, href, color }, index) => (
                     <motion.a
@@ -173,7 +173,7 @@ export const ContactSection = () => {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <p>&copy; 2024 Na REACH. All rights reserved.</p>
+          <p>&copy; 2026 Na REACH. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </section>

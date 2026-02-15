@@ -1,55 +1,73 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import image1 from "../sections/images/Pasted image.png";
+import image2 from "../sections/images/Pasted image (2).png";
+import image3 from "../sections/images/Pasted image (3).png";
+import image4 from "../sections/images/Pasted image (4).png";
+import image5 from "../sections/images/Pasted image (5).png";
+import image6 from "../sections/images/Pasted image (6).png";
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'Golden Future School',
+    description:
+      'Educational website showcasing school information, programs, and community resources with responsive UI.',
+    image: image1,
+    tech: ['Typescript', 'CSS', 'React', 'Responsive Design'],
+    liveUrl: 'https://golden-bytes-school-com.vercel.app',
+    githubUrl: '',
+    type: 'Static',
   },
   {
-    title: 'Task Management App',
-    description: 'Collaborative project management tool with real-time updates, team chat, and kanban boards.',
-    image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Socket.io'],
+    title: 'Movies Platform',
+    description:
+      'Full-featured movies browsing platform with MovieDB API integration, search, and responsive UI.',
+    image: image2,
+    tech: ['React', 'MovieDB API', 'Postman', 'CSS'],
+    liveUrl: 'https://movie-5-zeta.vercel.app/',
+    githubUrl: '#',
+    type: 'Fetch API',
+  },
+  {
+    title: 'Furniture Company',
+    description:
+      'E-commerce style furniture showcase with product galleries and modern UI.',
+    image: image3,
+    tech: ['HTML5', 'JavaScript', 'Figma', 'CSS3'],
     liveUrl: '#',
     githubUrl: '#',
+    type: 'Fetch API',
   },
   {
     title: 'AI Content Generator',
-    description: 'AI-powered content creation platform using advanced language models for marketing and copywriting.',
-    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['React', 'Python', 'FastAPI', 'OpenAI'],
-    liveUrl: '#',
+    description:
+      'AI-powered content creation platform using advanced language models for marketing and copywriting.',
+    image: image4,
+    tech: ['HTML5', 'Bootstrap', 'CSS3', 'OpenAI'],
+    liveUrl: 'https://visaphoung11.github.io/Small-World-Company-Visal-Neath-Rachana-/',
     githubUrl: '#',
+    type: 'Static',
   },
   {
-    title: 'Social Media Dashboard',
-    description: 'Analytics dashboard for tracking social media performance across multiple platforms with data visualization.',
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['Vue.js', 'Express', 'Redis', 'Chart.js'],
+    title: 'Library Management System',
+    description:
+      'Complete library management system with Vue.js frontend, featuring full CRUD operations for students, books, and borrowing records.',
+    image: image5,
+    tech: ['Vue.js', 'Express', 'Node.js', 'Tailwind CSS', 'MySQL'],
     liveUrl: '#',
     githubUrl: '#',
+    type: 'Full-Stack',
   },
   {
-    title: 'Fitness Tracking App',
-    description: 'Mobile-first fitness application with workout plans, progress tracking, and nutrition guidance.',
-    image: 'https://images.pexels.com/photos/4162489/pexels-photo-4162489.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['React Native', 'Firebase', 'TensorFlow', 'Redux'],
-    liveUrl: '#',
+    title: 'Beauty Salon Website',
+    description:
+      'Mobile-first beauty salon website with appointment booking and service showcase.',
+    image: image6,
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Figma'],
+    liveUrl: 'https://beauty-salon-website-omega.vercel.app',
     githubUrl: '#',
-  },
-  {
-    title: 'Real Estate Platform',
-    description: 'Property listing and management system with advanced search, virtual tours, and booking system.',
-    image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tech: ['Next.js', 'Prisma', 'PostgreSQL', 'AWS'],
-    liveUrl: '#',
-    githubUrl: '#',
+    type: 'Static',
   },
 ];
 
@@ -116,25 +134,54 @@ export const ProjectsSection = () => {
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
-                    <motion.a
-                      href={project.liveUrl}
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-sm font-semibold"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </motion.a>
-                    <motion.a
-                      href={project.githubUrl}
-                      className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg text-sm font-semibold"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Github size={16} />
-                      Code
-                    </motion.a>
+                  {/* Buttons Section */}
+                  <div className="flex flex-wrap gap-4">
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-sm font-semibold"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </motion.a>
+                    )}
+
+                    {project.githubUrl && (
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg text-sm font-semibold"
+                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Github size={16} />
+                        Code
+                      </motion.a>
+                    )}
+
+                    {/* Dynamic Type Button */}
+                    {project.type && (
+                      <motion.span
+                        className={`px-4 py-2 rounded-lg text-sm font-semibold ${
+                          project.type === 'Static'
+                            ? 'bg-green-500/20 border border-green-400 text-green-400'
+                            : project.type === 'Full-Stack'
+                            ? 'bg-purple-500/20 border border-purple-400 text-purple-400'
+                            : project.type === 'Fetch API'
+                            ? 'bg-yellow-500/20 border border-yellow-400 text-yellow-400'
+                            : ''
+                        }`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {project.type}
+                      </motion.span>
+                    )}
                   </div>
                 </div>
               </div>

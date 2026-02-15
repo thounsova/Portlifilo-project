@@ -1,29 +1,74 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase, GraduationCap, FolderPlus } from 'lucide-react';
 
 const experiences = [
+
+
+  // Project Entry
   {
-    type: 'work',
-    title: 'Senior Full-Stack Developer',
-    company: 'Tech Innovations Inc.',
-    period: '2021 - Present',
-    description: 'Leading development of enterprise web applications using React, Node.js, and cloud technologies.',
+    type: 'project',
+    title: 'Full-Stack Developer: Mother Care Project',
+    company: 'School Autism Program',
+    period: '2024',
+    description: `
+- Created a website for a school supporting children with autism
+- Developed a data management system for the school
+- Built the front-end system for the Mother Care Autism program
+- Improved communication and information access for teachers and parents
+    `,
   },
+  // Education
   {
-    type: 'work',
-    title: 'Full-Stack Developer',
-    company: 'Digital Solutions Ltd.',
-    period: '2019 - 2021',
-    description: 'Built and maintained multiple client projects, focusing on scalable architecture and performance.',
+    type: 'education',
+    title: 'Web & App Development',
+    company: 'School of Business – PSE Institute',
+    period: '2024 - Present',
+    description: `
+- Install and configure the work environment
+- Create user interface mockups
+- Develop static and dynamic user interfaces
+- Set up relational databases
+- Develop SQL and NoSQL data access components
+- Develop server-side business components
+- Document the deployment of dynamic web applications
+    `,
   },
   {
     type: 'education',
-    title: 'Bachelor of Computer Science',
-    company: 'University of Technology',
-    period: '2015 - 2019',
-    description: 'Graduated with honors, specialized in Software Engineering and Web Development.',
+    title: 'Foundation Studies Division',
+    company: 'PSE Institute',
+    period: '2023 - 2024',
+    description: '',
   },
+
+  // Work Experience
+  {
+    type: 'work',
+    title: 'Part-Time: Phone Repair & Sales',
+    company: 'Phone Shop, Prey Veng',
+    period: '2021 - 2022',
+    description: `
+- Repaired mobile phones and performed screen replacements
+- Installed software and configured programs on phones
+- Assisted customers and sold mobile devices
+- Delivered items using the shop’s van
+    `,
+  },
+
+  // Volunteer
+  {
+    type: 'work',
+    title: 'Volunteer: Student Mentor',
+    company: 'PSE Institute',
+    period: '2023 - 2024',
+    description: `
+- Practiced English conversation with learners
+- Taught basic English to other students
+- Created new questions and exercises to support learning
+    `,
+  },
+
 ];
 
 export const ExperienceSection = () => {
@@ -49,6 +94,7 @@ export const ExperienceSection = () => {
         </motion.h2>
 
         <div className="relative">
+          {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500" />
 
           <div className="space-y-8">
@@ -60,35 +106,42 @@ export const ExperienceSection = () => {
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
               >
+                {/* Timeline icon */}
                 <motion.div
-                  className="absolute left-5 top-6 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 border-4 border-gray-900"
+                  className={`absolute left-5 top-6 w-6 h-6 rounded-full border-4 border-gray-900 flex items-center justify-center ${
+                    exp.type === 'work'
+                      ? 'bg-gradient-to-br from-blue-500 to-purple-500'
+                      : exp.type === 'education'
+                      ? 'bg-gradient-to-br from-green-500 to-cyan-500'
+                      : 'bg-gradient-to-br from-pink-500 to-yellow-500'
+                  }`}
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
                   whileHover={{ scale: 1.5 }}
-                />
+                >
+                  {exp.type === 'work'
+                    ? <Briefcase size={20} />
+                    : exp.type === 'education'
+                    ? <GraduationCap size={20} />
+                    : <FolderPlus size={20} />}
+                </motion.div>
 
+                {/* Card */}
                 <motion.div
                   className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 shadow-2xl"
                   whileHover={{ scale: 1.02, borderColor: 'rgba(255, 255, 255, 0.2)' }}
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                      exp.type === 'work'
-                        ? 'bg-gradient-to-br from-blue-500 to-purple-500'
-                        : 'bg-gradient-to-br from-green-500 to-cyan-500'
-                    }`}>
-                      {exp.type === 'work' ? <Briefcase size={24} /> : <GraduationCap size={24} />}
+                  <div className="flex flex-col">
+                    <h3 className="text-2xl font-bold text-yellow-400 mb-1">{exp.title}</h3>
+                    <div className="flex items-center gap-4 text-gray-400 mb-2">
+                      <span className="font-medium">{exp.company}</span>
+                      <span className="text-sm">•</span>
+                      <span className="text-sm">{exp.period}</span>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-1">{exp.title}</h3>
-                      <div className="flex items-center gap-4 text-gray-400 mb-2">
-                        <span className="font-medium">{exp.company}</span>
-                        <span className="text-sm">•</span>
-                        <span className="text-sm">{exp.period}</span>
-                      </div>
-                      <p className="text-gray-300">{exp.description}</p>
-                    </div>
+                    {exp.description && (
+                      <pre className="text-gray-300 whitespace-pre-line">{exp.description}</pre>
+                    )}
                   </div>
                 </motion.div>
               </motion.div>
